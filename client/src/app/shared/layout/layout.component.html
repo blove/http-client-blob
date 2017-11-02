@@ -1,0 +1,20 @@
+<mat-sidenav-container fullscreen (backdropClick)="closeSidenav()">
+  <mat-sidenav [opened]="open | async">
+    <mat-list>
+      <mat-list-item>
+        <button mat-button (click)="heros()">Heros</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button (click)="add()">Add Hero</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <app-toolbar (openSidenav)="openSidenav()"></app-toolbar>
+  <div fxLayout="column" fxLayoutAlign="start stretch">
+    <div fxLayout="row" fxLayoutAlign="center">
+      <div fxFlex="90%" fxFlex.md="66.6667%" fxFlex.gt-md="50%">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</mat-sidenav-container>

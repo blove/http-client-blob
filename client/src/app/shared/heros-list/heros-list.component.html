@@ -1,0 +1,10 @@
+<h1>Heros</h1>
+<mat-list *ngIf="heros && heros.length > 0">
+  <mat-list-item *ngFor="let h of heros">
+    <button mat-icon-button (click)="remove.emit(h)">
+      <mat-icon>remove_circle</mat-icon>
+    </button>
+    <a (click)="hero.emit(h)" href="javascript:void(0)">{{ h.name }}</a>
+  </mat-list-item>
+</mat-list>
+<p *ngIf="heros && heros.length === 0"><em>There are no heros. :(</em></p>

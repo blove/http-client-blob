@@ -1,0 +1,17 @@
+:host {
+  .header {
+    position: relative;
+
+    button[matDialogClose] {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+    }
+  }
+
+  mat-dialog-content {
+    mat-form-field {
+      min-width: 300px;
+    }
+  }
+}

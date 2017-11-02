@@ -1,0 +1,16 @@
+<div class="header">
+  <button matDialogClose mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+  <h1 matDialogTitle>Create Hero</h1>
+</div>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Name">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="submit()" color="primary">Create</button>
+</mat-dialog-actions>

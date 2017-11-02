@@ -12,6 +12,7 @@ import { SharedModule } from "./shared/shared.module";
 import { HerosModule } from "./heros/heros.module";
 import { reducer } from "./app.reducers";
 import { HerosService } from "./core/services/heros.service";
+import { WindowRefService } from "./core/services/window.service";
 import { HeroEffects } from "./heros/heros.effects";
 
 @NgModule({
@@ -33,7 +34,8 @@ import { HeroEffects } from "./heros/heros.effects";
     })
   ],
   providers: [
-    HerosService
+    HerosService,
+    WindowRefService
   ],
   bootstrap: [AppComponent]
 })

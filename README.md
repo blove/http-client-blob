@@ -20,8 +20,6 @@ Then, serve the Angular client using the CLI:
 
 ## Goals
 
-Our goals for this series are:
-
 1. Create a simple Express Node.js HTTP server.
 2. Mock an image/jpeg image response. This is just hard coded.
 3. Create a simple Angular application to display heros.

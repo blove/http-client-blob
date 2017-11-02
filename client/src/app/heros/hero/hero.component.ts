@@ -5,6 +5,7 @@ import { Store } from "@ngrx/store";
 import { State, getHero, getImage } from "../../app.reducers";
 import { Hero } from "../../models/hero";
 import { LoadHeroAction, LoadHeroImageAction } from "../heros.actions";
+import { WindowRefService } from "../../core/services/window.service";
 
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/filter";
@@ -21,11 +22,14 @@ export class HeroComponent implements OnDestroy, OnInit {
 
   @ViewChild("heroImage") image: ElementRef;
 
+  private _window: Window;
+
   private alive = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private store: Store<State>
+    private store: Store<State>,
+    private windowRefService: WindowRefService
   ) { }
 
   ngOnDestroy() {
@@ -33,6 +37,8 @@ export class HeroComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit() {
+    this._window = this.windowRefService.nativeWindow;
+
     this.hero = this.activatedRoute.paramMap
     .takeWhile(() => this.alive)
     .do(params => {
@@ -51,7 +57,7 @@ export class HeroComponent implements OnDestroy, OnInit {
     .takeWhile(() => this.alive)
     .filter(image => !!image)
     .subscribe(image => {
-      this.image.nativeElement.src = URL.createObjectURL(image)
+      this.image.nativeElement.src = this._window.URL.createObjectURL(image)
     })
   }
 
